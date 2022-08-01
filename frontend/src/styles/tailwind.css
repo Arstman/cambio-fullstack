@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .mega-menu {
+        @apply hidden;
+        @apply left-0;
+        @apply absolute;
+        @apply text-left;
+        @apply w-full;
+    }
+
+    /* #hoverable Class Styles
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+    .hoverable {
+        @apply static;
+    }
+
+    .hoverable>a:after {
+        content: '\25BC';
+        @apply text-sm;
+        @apply pl-2;
+        @apply relative;
+        @apply -top-1;
+    }
+
+    .hoverable:hover .mega-menu {
+        @apply block;
+        @apply z-30;
+    }
+
+    /* #toggle Class Styles
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+    .toggleable>label:after {
+        content: '\25BC';
+        @apply text-xs;
+        @apply pl-2;
+        @apply relative;
+        @apply -top-1;
+    }
+
+    .toggle-input {
+        @apply hidden;
+    }
+
+    .toggle-input:not(checked)~.mega-menu {
+        @apply hidden;
+    }
+
+    .toggle-input:checked~.mega-menu {
+        @apply block;
+    }
+
+    .toggle-input:checked+label {
+        @apply text-white;
+        @apply bg-blue-800;
+    }
+
+    .toggle-input:checked~label:after {
+        content: '\25B2';
+        @apply text-sm;
+        @apply pl-2;
+        @apply relative;
+        @apply -top-1;
+    }
+}
